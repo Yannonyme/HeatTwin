@@ -1,7 +1,19 @@
 #include "heattwin.h"
 #include "esphome/core/log.h"
-namespace esphome::heattwin {
-static const char *TAG="heattwin";
-void HeatTwinComponent::setup(){ESP_LOGI(TAG,"start");}
-void HeatTwinComponent::loop(){}
+
+namespace esphome {
+namespace heattwin {
+
+static const char *const TAG = "heattwin";
+
+void HeatTwinComponent::setup()
+{
+    ESP_LOGI(TAG, "HeatTwin started");
 }
+
+void HeatTwinComponent::loop()
+{
+}
+
+}  // namespace heattwin
+}  // namespace esphome

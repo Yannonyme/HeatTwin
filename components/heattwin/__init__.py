@@ -1,7 +1,21 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
+
+from esphome.const import CONF_ID
+
 heattwin_ns = cg.esphome_ns.namespace("heattwin")
-HeatTwinComponent = heattwin_ns.class_("HeatTwinComponent", cg.Component)
-CONFIG_SCHEMA=cv.COMPONENT_SCHEMA
+
+HeatTwinComponent = heattwin_ns.class_(
+    "HeatTwinComponent",
+    cg.Component
+)
+
+CONFIG_SCHEMA = cv.Schema(
+    {
+        cv.GenerateID(): cv.declare_id(HeatTwinComponent),
+    }
+).extend(cv.COMPONENT_SCHEMA)
+
 async def to_code(config):
-    pass
+    var = cg.new_Pvariable(config[CONF_ID])
+    await cg.register_component(var, config)
