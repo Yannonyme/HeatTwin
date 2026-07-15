@@ -1,0 +1,7 @@
+esphome:
+  name: heattwin-test
+esp32:
+  board: esp32dev
+external_components:
+  - source: ../components
+heattwin:
